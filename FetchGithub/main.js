@@ -54,17 +54,3 @@ function getRepos() {
   }
 }
 
-const getData = (appLink) => {
-  return new Promise((resolveFuncion, rejectedFunction) => {
-    let myRequest = new XMLHttpRequest();
-    myRequest.onload = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        resolveFuncion(JSON.parse(this.responseText));
-      } else {
-        rejectedFunction(Error("No Data Found"));
-      }
-    };
-    myRequest.open("GET", appLink);
-    myRequest.send();
-  });
-};
